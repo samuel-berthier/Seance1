@@ -11,7 +11,10 @@ public abstract class Employe {
     private String prenom;
     protected int echelon;
     private LocalDate date_naiss;
-    private LocalDate date_embauche;
+
+
+
+    protected LocalDate date_embauche;
     protected String salaire_net;
     protected String salaire_brut;
     protected double nombre_heure;
@@ -53,6 +56,10 @@ public abstract class Employe {
                 ", nombre_heure=" + nombre_heure +
                 ", base=" + base +
                 '}';
+    }
+
+    public LocalDate getDate_embauche() {
+        return date_embauche;
     }
 }//Employe
 
