@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.exo1;
+package fr.univ_amu.iut.exo3;
 
 import fr.univ_amu.iut.*;
 

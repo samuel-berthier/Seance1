@@ -1,9 +1,10 @@
 package fr.univ_amu.iut;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
 
-public abstract class Employe {
+public abstract class Employe implements Serializable {
 
     private int num;
     private String num_Secu;
