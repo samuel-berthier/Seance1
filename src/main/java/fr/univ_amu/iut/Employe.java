@@ -3,19 +3,19 @@ package fr.univ_amu.iut;
 import java.time.Duration;
 import java.time.LocalDate;
 
-public class Employe {
+public abstract class Employe {
 
     private int num;
     private String num_Secu;
     private String nom;
     private String prenom;
-    private int echelon;
+    protected int echelon;
     private LocalDate date_naiss;
     private LocalDate date_embauche;
-    private String salaire_net;
-    private String salaire_brut;
-    private double nombre_heure;
-    private double base;
+    protected String salaire_net;
+    protected String salaire_brut;
+    protected double nombre_heure;
+    protected double base;
 
 
     public Employe(int num, String num_Secu, String nom, String prenom, int echelon, LocalDate date_naiss, LocalDate date_embauche, double nombre_heure, double base) {
@@ -31,6 +31,13 @@ public class Employe {
     }
 
 
+
+    public double getSalaireNet(){
+        return getSalaireBrut()*0.8;
+    }
+
+   protected abstract double getSalaireBrut();
+
     @Override
     public String toString() {
         return "Employe{" +
@@ -41,20 +48,11 @@ public class Employe {
                 ", echelon=" + echelon +
                 ", date_naiss=" + date_naiss +
                 ", date_embauche=" + date_embauche +
-                ", salaire_net='" + salaire_net + '\'' +
-                ", salaire_brut='" + salaire_brut + '\'' +
+                ", salaire_net='" +getSalaireNet() + '\'' +
+                ", salaire_brut='" + getSalaireBrut() + '\'' +
                 ", nombre_heure=" + nombre_heure +
                 ", base=" + base +
                 '}';
-    }
-
-    public double getSalaireNet(){
-        return getSalaireBrut()*0.8;
-    }
-
-    public double getSalaireBrut(){
-        Duration duration = Duration.between(LocalDate.now(), date_embauche);
-        return (double)(duration.toHours() * base);
     }
 }//Employe
 
